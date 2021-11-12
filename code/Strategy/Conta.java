@@ -1,4 +1,4 @@
-package strategy;
+package Strategy;
 
 public class Conta {
 	protected int numeroConta;
@@ -15,21 +15,21 @@ public class Conta {
 		this.valorChequeEspecial = valorChequeEspecial;
 
 		switch (tipoConta) {
-		case Corrente:
-			estrategiaSaque = new CalculaSaqueCorrente();
-			tipoConta = Corrente;
-			break;
-		case Salario:
-			estrategiaSaque = new CalculaSaqueSalario();
-			tipoConta = Salario;
-			break;
-		case Poupanca:
-			estrategiaSaque = new CalculaSaquePoupanca();
-			tipoConta = Poupanca;
-			break;
-		default:
-			throw new RuntimeException("Tipo de Conta n√£o encontrado!");
-		}
+			case "Corrente":
+				estrategiaSaque = new CalculaSaqueCorrente();
+				tipoConta = "Corrente";
+				break;
+			case "Salario":
+				estrategiaSaque = new CalculaSaqueSalario();
+				tipoConta = "Salario";
+				break;
+			case "Poupanca":
+				estrategiaSaque = new CalculaSaquePoupanca();
+				tipoConta = "Poupanca";
+				break;
+			default:
+				throw new RuntimeException("Tipo de conta n„o encontrado!");
+			}
 	}
 
 	public double calcularSaque() {
