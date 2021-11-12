@@ -1,4 +1,4 @@
-package factory;
+package Factory;
 
 public class ContaPoupanca implements Conta {
     public String getTipoConta() {

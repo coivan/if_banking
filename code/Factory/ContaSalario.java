@@ -1,4 +1,4 @@
-package factory;
+package Factory;
 
 public class ContaSalario implements Conta {
     public String getTipoConta() {
