@@ -1,4 +1,4 @@
-package Strategy;
+package strategy;
 
 public class Teste {
 	public static void main(String[] args) {

@@ -1,5 +1,5 @@
 
-package Strategy;
+package strategy;
 
 public class CalculaSaqueCorrente implements CalculaSaque {
 	@Override

@@ -1,4 +1,4 @@
-package Factory;
+package factory;
 
 public interface Conta {
     String getTipoConta();

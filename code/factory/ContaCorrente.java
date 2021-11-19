@@ -1,8 +1,8 @@
-package Factory;
+package factory;
 
-public class ContaSalario implements Conta {
+public class ContaCorrente implements Conta {
     public String getTipoConta() {
-        return "Conta Salario";
+        return "Conta Corrente";
     }
 
 	@Override

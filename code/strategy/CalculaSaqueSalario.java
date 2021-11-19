@@ -1,6 +1,6 @@
-package Strategy;
+package strategy;
 
-public class CalculaSaquePoupanca implements CalculaSaque {
+public class CalculaSaqueSalario implements CalculaSaque {
 	@Override
 	public Double calculaSaque(Conta cliente) {
 		if (cliente.getSaldo() > 0 && cliente.getSaldo() > cliente.getValorSaque()) {
