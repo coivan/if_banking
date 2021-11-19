@@ -1,5 +1,5 @@
 package strategy;
 
 interface CalculaSaque {
-	Double calculaSaque(Conta cliente);
+	Double calculaSaque(ContaStrategy cliente);
 }
