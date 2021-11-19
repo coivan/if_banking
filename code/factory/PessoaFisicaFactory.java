@@ -4,7 +4,7 @@ import java.util.List;
 
 import pessoa.PessoaFisica;
 
-public interface PessoaFactory {
+public interface PessoaFisicaFactory {
 
 	void insert(PessoaFisica obj);
 	PessoaFisica read(String cpfOuCnpj);
