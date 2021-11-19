@@ -5,15 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import dbConnection.DBConnection;
 import dbConnection.DBException;
-import factory.PessoaFisicaFactory;
-import pessoa.Pessoa;
+import factory.PessoaFactory;
 import pessoa.PessoaFisica;
 
-public class PessoaFisicaFactoryJDBC implements PessoaFisicaFactory {
+public class PessoaFisicaFactoryJDBC implements PessoaFactory {
 
 	private Connection connection;
 	
@@ -28,8 +28,8 @@ public class PessoaFisicaFactoryJDBC implements PessoaFisicaFactory {
 		PreparedStatement st = null;
 		try {
 			st = connection.prepareStatement(
-					"INSERT INTO pessoa "
-					+ "(nome, endereco, email, telefone, nascimento, cpfOuCnpj, salario) "
+					"INSERT INTO pessoa_fisica "
+					+ "(nome, endereco, email, telefone, nascimento, salario, cpf) "
 					+ "VALUES "
 					+ "(?, ?, ?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
@@ -38,8 +38,8 @@ public class PessoaFisicaFactoryJDBC implements PessoaFisicaFactory {
 			st.setString(3, obj.getEmail());
 			st.setString(4, obj.getTelefone());
 			st.setDate(5, new java.sql.Date(obj.getNascimento().getTime()));
-			st.setString(6, obj.getCpf());
-			st.setDouble(7, obj.getSalario());
+			st.setDouble(6, obj.getSalario());
+			st.setString(7, obj.getCpf());
 			
 			int numeroDeLinhasAfetadas = st.executeUpdate();
 			
@@ -65,29 +65,114 @@ public class PessoaFisicaFactoryJDBC implements PessoaFisicaFactory {
 
 	//lê uma pessoa do banco de dados
 	@Override
-	public Pessoa read(String cpfOuCnpj) {
+	public PessoaFisica read(String cpfOuCnpj) {
 		
-		return null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = connection.prepareStatement(
+					"SELECT * FROM pessoa_fisica WHERE cpf = ?");
+			st.setString(1, cpfOuCnpj);
+			rs = st.executeQuery();
+			if(rs.next()) {
+				PessoaFisica pessoaFisica = new PessoaFisica();
+				pessoaFisica.setNome(rs.getString("nome"));
+				pessoaFisica.setEndereco(rs.getString("endereco"));
+				pessoaFisica.setEmail(rs.getString("email"));
+				pessoaFisica.setTelefone(rs.getString("telefone"));
+				pessoaFisica.setNascimento(rs.getDate("nascimento"));
+				pessoaFisica.setSalario(rs.getDouble("salario"));
+				pessoaFisica.setCpf(rs.getString("cpf"));
+				return pessoaFisica;
+			}
+			return null;
+		}
+		catch(SQLException e) {
+			throw new DBException(e.getMessage());
+		}
+		finally {
+			DBConnection.closeStatement(st);
+			DBConnection.closeResultSet(rs);
+		}
 	}
 
 	//lê todas as pessoa no banco de dados
 	@Override
-	public List<Pessoa> readAll() {
+	public List<PessoaFisica> readAll() {
 		
-		return null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = connection.prepareStatement("SELECT * FROM pessoa_fisica");
+			rs = st.executeQuery();
+			
+			List<PessoaFisica> list = new ArrayList<>();
+			
+			while(rs.next()) {
+				PessoaFisica pessoaFisica = new PessoaFisica();
+				pessoaFisica.setNome(rs.getString("nome"));
+				pessoaFisica.setEndereco(rs.getString("endereco"));
+				pessoaFisica.setEmail(rs.getString("email"));
+				pessoaFisica.setTelefone(rs.getString("telefone"));
+				pessoaFisica.setNascimento(rs.getDate("nascimento"));
+				pessoaFisica.setSalario(rs.getDouble("salario"));
+				pessoaFisica.setCpf(rs.getString("cpf"));
+				list.add(pessoaFisica);
+			}
+			return list;
+		}
+		catch(SQLException e) {
+			throw new DBException(e.getMessage());
+		}
+		finally {
+			DBConnection.closeStatement(st);
+			DBConnection.closeResultSet(rs);
+		}
 	}
 
 	//atualiza os dados de uma pessoa no banco de dados
 	@Override
-	public void update(Pessoa obj) {
+	public void update(PessoaFisica obj) {
 		
-		
+		PreparedStatement st = null;
+		try {
+			st = connection.prepareStatement(
+					"UPDATE pessoa_fisica "
+					+ "SET nome = ?, endereco = ?, email = ?, telefone = ?, "
+					+ "nascimento = ?, salario = ?, cpf = ? "
+					+ "WHERE cpf = ?");
+			st.setString(1, obj.getNome());
+			st.setString(2, obj.getEndereco());
+			st.setString(3, obj.getEmail());
+			st.setString(4, obj.getTelefone());
+			st.setDate(5, new java.sql.Date(obj.getNascimento().getTime()));
+			st.setDouble(6, obj.getSalario());
+			st.setString(7, obj.getCpf());
+			st.executeUpdate();	
+		}
+		catch(SQLException e) {
+			throw new DBException(e.getMessage());
+		}
+		finally {
+			DBConnection.closeStatement(st);
+		}
 	}
 
 	//deleta dos dados de uma pessoa do banco de dados
 	@Override
 	public void delete(String cpfOuCnpj) {
 		
-		
+		PreparedStatement st = null;
+		try {
+			st = connection.prepareStatement("DELETE FROM pessoa_fisica WHERE cpf = ?");
+			st.setString(1, cpfOuCnpj);
+			st.executeUpdate();
+		}
+		catch(SQLException e) {
+			throw new DBException(e.getMessage());
+		}
+		finally {
+			DBConnection.closeStatement(st);
+		}
 	}
 }

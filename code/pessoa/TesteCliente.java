@@ -1,3 +1,5 @@
+package pessoa;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -6,7 +8,7 @@ public class TesteCliente {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
-		PessoaFisica pessoaFisica = new PessoaFisica("Pablo Escobar", "Rua do Pó", "elguaco@pbe.noia", "(123)9999-8888", sdf.parse("01/01/1981"), "111.222.333-44");
+		PessoaFisica pessoaFisica = new PessoaFisica("Pablo Escobar", "Rua do Pó", "elguaco@pbe.noia", "(123)9999-8888", sdf.parse("01/01/1981"), 5000.00, "111.222.333-44");
 		System.out.println("\nNome: " + pessoaFisica.nome);
 		System.out.println("Endereco: " + pessoaFisica.endereco);
 		System.out.println("Email: " + pessoaFisica.email);

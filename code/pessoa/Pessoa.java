@@ -1,3 +1,5 @@
+package pessoa;
+
 import java.util.Date;
 
 public abstract class Pessoa {
@@ -8,6 +10,9 @@ public abstract class Pessoa {
 	public String telefone;
 	public Date nascimento;
 
+	public Pessoa() {
+	}
+	
 	public Pessoa(String nome, String endereco, String email, String telefone, Date nascimento) {
 		this.nome = nome;
 		this.endereco = endereco;

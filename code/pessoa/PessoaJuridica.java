@@ -1,12 +1,18 @@
+package pessoa;
+
 import java.util.Date;
 
 public class PessoaJuridica extends Pessoa {
 	
-	private String cnpj;
 	public Double salario;
+	private String cnpj;
 
-	public PessoaJuridica(String nome, String endereco, String email, String cnpj, String telefone, Date nascimento) {
+	public PessoaJuridica() {
+	}
+	
+	public PessoaJuridica(String nome, String endereco, String email, String telefone, Date nascimento, Double salario, String cnpj) {
 		super(nome, endereco, email, telefone, nascimento);
+		this.salario = salario;
 		this.cnpj = cnpj;
 	}
 

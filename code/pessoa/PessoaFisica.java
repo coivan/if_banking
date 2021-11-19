@@ -1,12 +1,18 @@
+package pessoa;
+
 import java.util.Date;
 
 public class PessoaFisica extends Pessoa {
 
-	public String cpf;
 	public Double salario;
+	public String cpf;
 
-	public PessoaFisica(String nome, String endereco, String email, String telefone, Date nascimento, String cpf) {
+	public PessoaFisica() {
+	}
+	
+	public PessoaFisica(String nome, String endereco, String email, String telefone, Date nascimento, Double salario, String cpf) {
 		super(nome, endereco, email, telefone, nascimento);
+		this.salario = salario;
 		this.cpf = cpf;
 	}
 
@@ -22,7 +28,7 @@ public class PessoaFisica extends Pessoa {
 		return salario;
 	}
 
-	public void setSalario(double salario) {
+	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
 
