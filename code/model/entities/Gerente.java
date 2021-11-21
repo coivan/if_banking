@@ -1,6 +1,7 @@
-package pessoa;
+package model.entities;
 
 import java.util.Date;
+import pessoa.PessoaFisica;
 
 public class Gerente extends PessoaFisica {
 
@@ -15,5 +16,4 @@ public class Gerente extends PessoaFisica {
 	public void consultar_credito() {
 
 	}
-
 }

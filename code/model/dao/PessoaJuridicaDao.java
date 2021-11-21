@@ -1,10 +1,10 @@
-package factory;
+package model.dao;
 
 import java.util.List;
 
-import pessoa.PessoaJuridica;
+import model.entities.PessoaJuridica;
 
-public interface PessoaJuridicaFactory {
+public interface PessoaJuridicaDao {
 
 	void insert(PessoaJuridica obj);
 	PessoaJuridica read(String cpfOuCnpj);

@@ -1,4 +1,4 @@
-package factory.implementations;
+package model.dao.implementations;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,19 +10,19 @@ import java.util.List;
 
 import dbConnection.DBConnection;
 import dbConnection.DBException;
-import factory.ContaFactory;
-import strategy.ContaStrategy;
+import model.dao.ContaDao;
+import model.entities.Conta;
 
-public class ContaFactoryJDBC implements ContaFactory {
+public class ContaDaoJDBC implements ContaDao {
 private Connection connection;
 	
-	public ContaFactoryJDBC(Connection connection) {
+	public ContaDaoJDBC(Connection connection) {
 		this.connection = connection;
 	}
 	
 	//insere uma pessoa no banco de dados
 	@Override
-	public void insert(ContaStrategy obj) {
+	public void insert(Conta obj) {
 		
 		PreparedStatement st = null;
 		try {
@@ -62,7 +62,7 @@ private Connection connection;
 
 	//lê uma pessoa do banco de dados
 	@Override
-	public ContaStrategy read(String numero) {
+	public Conta read(String numero) {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -72,7 +72,7 @@ private Connection connection;
 			st.setString(1, numero);
 			rs = st.executeQuery();
 			if(rs.next()) {
-				ContaStrategy contaStrategy = new ContaStrategy();
+				Conta contaStrategy = new Conta();
 				contaStrategy.setNumeroConta(rs.getString("numero"));
 				contaStrategy.setSaldo(rs.getDouble("saldo"));
 				contaStrategy.setValorSaque(rs.getDouble("valor_saque"));
@@ -93,7 +93,7 @@ private Connection connection;
 
 	//lê todas as pessoa no banco de dados
 	@Override
-	public List<ContaStrategy> readAll() {
+	public List<Conta> readAll() {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -101,10 +101,10 @@ private Connection connection;
 			st = connection.prepareStatement("SELECT * FROM conta");
 			rs = st.executeQuery();
 			
-			List<ContaStrategy> list = new ArrayList<>();
+			List<Conta> list = new ArrayList<>();
 			
 			while(rs.next()) {
-				ContaStrategy contaStrategy = new ContaStrategy();
+				Conta contaStrategy = new Conta();
 				contaStrategy.setNumeroConta(rs.getString("numero"));
 				contaStrategy.setSaldo(rs.getDouble("saldo"));
 				contaStrategy.setValorSaque(rs.getDouble("valor_saque"));
@@ -125,7 +125,7 @@ private Connection connection;
 
 	//atualiza os dados de uma pessoa no banco de dados
 	@Override
-	public void update(ContaStrategy obj) {
+	public void update(Conta obj) {
 		
 		PreparedStatement st = null;
 		try {
@@ -169,3 +169,4 @@ private Connection connection;
 	}
 
 }
+

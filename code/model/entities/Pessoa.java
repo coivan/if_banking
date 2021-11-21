@@ -1,4 +1,4 @@
-package pessoa;
+package model.entities;
 
 import java.util.Date;
 
@@ -98,3 +98,4 @@ public abstract class Pessoa {
 		return true;
 	}
 }
+

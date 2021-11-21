@@ -1,4 +1,4 @@
-package pessoa;
+package model.entities;
 
 import java.util.Date;
 
@@ -31,5 +31,4 @@ public class PessoaFisica extends Pessoa {
 	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
-
 }

@@ -1,4 +1,4 @@
-package factory.implementations;
+package model.dao.implementations;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,14 +10,14 @@ import java.util.List;
 
 import dbConnection.DBConnection;
 import dbConnection.DBException;
-import factory.PessoaJuridicaFactory;
-import pessoa.PessoaJuridica;
+import model.dao.PessoaJuridicaDao;
+import model.entities.PessoaJuridica;
 
-public class PessoaJuridicaFactoryJDBC implements PessoaJuridicaFactory {
+public class PessoaJuridicaDaoJDBC implements PessoaJuridicaDao {
 
 	private Connection connection;
 	
-	public PessoaJuridicaFactoryJDBC(Connection connection) {
+	public PessoaJuridicaDaoJDBC(Connection connection) {
 		this.connection = connection;
 	}
 	
