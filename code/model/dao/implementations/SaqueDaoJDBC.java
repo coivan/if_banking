@@ -10,32 +10,33 @@ import java.util.List;
 
 import dbConnection.DBConnection;
 import dbConnection.DBException;
-import model.dao.DepositoDao;
-import model.entities.Deposito;
+import model.dao.SaqueDao;
+import model.entities.Saque;
 
-public class DepositoDaoJDBC implements DepositoDao {
+public class SaqueDaoJDBC implements SaqueDao {
 
 private Connection connection;
 	
-	public DepositoDaoJDBC(Connection connection) {
+	public SaqueDaoJDBC(Connection connection) {
 		this.connection = connection;
 	}
 	
-	//insere um deposito no banco de dados
+	//insere um saque no banco de dados
 	@Override
-	public void insert(Deposito obj) {
+	public void insert(Saque obj) {
 		
 		PreparedStatement st = null;
 		try {
 			st = connection.prepareStatement(
-					"INSERT INTO deposito "
-					+ "(id, cpf_deposito, valor) "
+					"INSERT INTO saque "
+					+ "(id, cpf_saque, valor, valor_taxa) "
 					+ "VALUES "
-					+ "(?, ?, ?)",
+					+ "(?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			st.setLong(1, obj.getId());
-			st.setString(2, obj.getCpfDeposito());
+			st.setString(2, obj.getCpfSaque());
 			st.setDouble(3, obj.getValor());
+			st.setDouble(4, obj.getValorTaxa());
 			
 			int numeroDeLinhasAfetadas = st.executeUpdate();
 			
@@ -59,23 +60,24 @@ private Connection connection;
 		}
 	}
 
-	//lê um deposito do banco de dados
+	//lê um saque do banco de dados
 	@Override
-	public Deposito read(Long id) {
+	public Saque read(Long id) {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
 			st = connection.prepareStatement(
-					"SELECT * FROM deposito WHERE id = ?");
+					"SELECT * FROM saque WHERE id = ?");
 			st.setLong(1, id);
 			rs = st.executeQuery();
 			if(rs.next()) {
-				Deposito deposito = new Deposito();
-				deposito.setId(rs.getLong("id"));
-				deposito.setCpfDeposito(rs.getString("cpf_deposito"));
-				deposito.setValor(rs.getDouble("valor"));
-				return deposito;
+				Saque saque = new Saque();
+				saque.setId(rs.getLong("id"));
+				saque.setCpfSaque(rs.getString("cpf_saque"));
+				saque.setValor(rs.getDouble("valor"));
+				saque.setValorTaxa(rs.getDouble("valor_taxa"));
+				return saque;
 			}
 			return null;
 		}
@@ -88,24 +90,25 @@ private Connection connection;
 		}
 	}
 
-	//lê todos os depositos no banco de dados
+	//lê todos os saques no banco de dados
 	@Override
-	public List<Deposito> readAll() {
+	public List<Saque> readAll() {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = connection.prepareStatement("SELECT * FROM deposito");
+			st = connection.prepareStatement("SELECT * FROM saque");
 			rs = st.executeQuery();
 			
-			List<Deposito> list = new ArrayList<>();
+			List<Saque> list = new ArrayList<>();
 			
 			while(rs.next()) {
-				Deposito deposito = new Deposito();
-				deposito.setId(rs.getLong("id"));
-				deposito.setCpfDeposito(rs.getString("cpf_deposito"));
-				deposito.setValor(rs.getDouble("valor"));
-				list.add(deposito);
+				Saque saque = new Saque();
+				saque.setId(rs.getLong("id"));
+				saque.setCpfSaque(rs.getString("cpf_saque"));
+				saque.setValor(rs.getDouble("valor"));
+				saque.setValorTaxa(rs.getDouble("valor_taxa"));
+				list.add(saque);
 			}
 			return list;
 		}
@@ -118,20 +121,21 @@ private Connection connection;
 		}
 	}
 
-	//atualiza os dados de um deposito no banco de dados
+	//atualiza os dados de um saque no banco de dados
 	@Override
-	public void update(Deposito obj) {
+	public void update(Saque obj) {
 		
 		PreparedStatement st = null;
 		try {
 			st = connection.prepareStatement(
-					"UPDATE deposito "
-					+ "SET id = ?, cpf_deposito = ?, valor = ?, "
+					"UPDATE saque "
+					+ "SET id = ?, cpf_saque = ?, valor = ?, valor_taxa = ? "
 					+ "WHERE id = ?");
 			st.setLong(1, obj.getId());
-			st.setString(2, obj.getCpfDeposito());
+			st.setString(2, obj.getCpfSaque());
 			st.setDouble(3, obj.getValor());
-			st.setLong(4, obj.getId());
+			st.setDouble(4, obj.getValorTaxa());
+			st.setLong(5, obj.getId());
 			st.executeUpdate();	
 		}
 		catch(SQLException e) {
@@ -142,13 +146,13 @@ private Connection connection;
 		}
 	}
 
-	//deleta os dados de um deposito do banco de dados
+	//deleta os dados de um saque do banco de dados
 	@Override
 	public void delete(Long id) {
 		
 		PreparedStatement st = null;
 		try {
-			st = connection.prepareStatement("DELETE FROM deposito WHERE id = ?");
+			st = connection.prepareStatement("DELETE FROM saque WHERE id = ?");
 			st.setLong(1, id);
 			st.executeUpdate();
 		}
