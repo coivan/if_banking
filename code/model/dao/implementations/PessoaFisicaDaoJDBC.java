@@ -21,7 +21,7 @@ public class PessoaFisicaDaoJDBC implements PessoaFisicaDao {
 		this.connection = connection;
 	}
 	
-	//insere uma pessoa no banco de dados
+	//insere uma pessoa fisica no banco de dados
 	@Override
 	public void insert(PessoaFisica obj) {
 		
@@ -63,7 +63,7 @@ public class PessoaFisicaDaoJDBC implements PessoaFisicaDao {
 		}
 	}
 
-	//lê uma pessoa do banco de dados
+	//lê uma pessoa fisica do banco de dados
 	@Override
 	public PessoaFisica read(String cpfOuCnpj) {
 		
@@ -96,7 +96,7 @@ public class PessoaFisicaDaoJDBC implements PessoaFisicaDao {
 		}
 	}
 
-	//lê todas as pessoa no banco de dados
+	//lê todas as pessoas fisicas no banco de dados
 	@Override
 	public List<PessoaFisica> readAll() {
 		
@@ -130,7 +130,7 @@ public class PessoaFisicaDaoJDBC implements PessoaFisicaDao {
 		}
 	}
 
-	//atualiza os dados de uma pessoa no banco de dados
+	//atualiza os dados de uma pessoa fisica no banco de dados
 	@Override
 	public void update(PessoaFisica obj) {
 		
@@ -158,7 +158,7 @@ public class PessoaFisicaDaoJDBC implements PessoaFisicaDao {
 		}
 	}
 
-	//deleta dos dados de uma pessoa do banco de dados
+	//deleta dos dados de uma pessoa fisica do banco de dados
 	@Override
 	public void delete(String cpfOuCnpj) {
 		

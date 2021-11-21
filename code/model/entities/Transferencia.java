@@ -2,7 +2,7 @@ package model.entities;
 
 public class Transferencia {
 	
-	private Integer id;
+	private Long id;
 	private String cpfEnvio;
 	private String cpfRecebimento;
 	private Double valor;
@@ -12,7 +12,7 @@ public class Transferencia {
 		
 	}
 	
-	public Transferencia(Integer id, String cpfEnvio, String cpfRecebimento, Double valor, Double valorTaxa) {
+	public Transferencia(Long id, String cpfEnvio, String cpfRecebimento, Double valor, Double valorTaxa) {
 		this.id = id;
 		this.cpfEnvio = cpfEnvio;
 		this.cpfRecebimento = cpfRecebimento;
@@ -20,11 +20,11 @@ public class Transferencia {
 		this.valorTaxa = valorTaxa;
 	}
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

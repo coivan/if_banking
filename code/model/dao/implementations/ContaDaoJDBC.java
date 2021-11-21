@@ -14,13 +14,14 @@ import model.dao.ContaDao;
 import model.entities.Conta;
 
 public class ContaDaoJDBC implements ContaDao {
-private Connection connection;
+	
+	private Connection connection;
 	
 	public ContaDaoJDBC(Connection connection) {
 		this.connection = connection;
 	}
 	
-	//insere uma pessoa no banco de dados
+	//insere uma conta no banco de dados
 	@Override
 	public void insert(Conta obj) {
 		
@@ -60,7 +61,7 @@ private Connection connection;
 		}
 	}
 
-	//lê uma pessoa do banco de dados
+	//lê uma conta do banco de dados
 	@Override
 	public Conta read(String numero) {
 		
@@ -91,7 +92,7 @@ private Connection connection;
 		}
 	}
 
-	//lê todas as pessoa no banco de dados
+	//lê todas as contas no banco de dados
 	@Override
 	public List<Conta> readAll() {
 		
@@ -123,7 +124,7 @@ private Connection connection;
 		}
 	}
 
-	//atualiza os dados de uma pessoa no banco de dados
+	//atualiza os dados de uma conta no banco de dados
 	@Override
 	public void update(Conta obj) {
 		
@@ -150,7 +151,7 @@ private Connection connection;
 		}
 	}
 
-	//deleta dos dados de uma pessoa do banco de dados
+	//deleta dos dados de uma conta do banco de dados
 	@Override
 	public void delete(String numero) {
 		

@@ -21,7 +21,7 @@ public class PessoaJuridicaDaoJDBC implements PessoaJuridicaDao {
 		this.connection = connection;
 	}
 	
-	//insere uma pessoa no banco de dados
+	//insere uma pessoa juridica no banco de dados
 	@Override
 	public void insert(PessoaJuridica obj) {
 		
@@ -63,7 +63,7 @@ public class PessoaJuridicaDaoJDBC implements PessoaJuridicaDao {
 		}
 	}
 
-	//lê uma pessoa do banco de dados
+	//lê uma pessoa juridica do banco de dados
 	@Override
 	public PessoaJuridica read(String cnpjOuCnpj) {
 		
@@ -96,7 +96,7 @@ public class PessoaJuridicaDaoJDBC implements PessoaJuridicaDao {
 		}
 	}
 
-	//lê todas as pessoa no banco de dados
+	//lê todas as pessoas juridicas no banco de dados
 	@Override
 	public List<PessoaJuridica> readAll() {
 		
@@ -130,7 +130,7 @@ public class PessoaJuridicaDaoJDBC implements PessoaJuridicaDao {
 		}
 	}
 
-	//atualiza os dados de uma pessoa no banco de dados
+	//atualiza os dados de uma pessoa juridica no banco de dados
 	@Override
 	public void update(PessoaJuridica obj) {
 		
@@ -158,7 +158,7 @@ public class PessoaJuridicaDaoJDBC implements PessoaJuridicaDao {
 		}
 	}
 
-	//deleta dos dados de uma pessoa do banco de dados
+	//deleta dos dados de uma pessoa juridica do banco de dados
 	@Override
 	public void delete(String cnpjOuCnpj) {
 		
