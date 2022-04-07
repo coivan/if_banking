@@ -51,11 +51,11 @@ Sistema bancário desenvolvido para o projeto interdisciplinar no 4º semestre d
         Contate-me
         <p align="left">
             <a href="https://www.linkedin.com/in/ronald785/" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="Linkedin-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="Linkedin-icon" width="30" height="30"/>
             </a>
               &nbsp;
             <a href="https://github.com/Ronald785" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="GitHub-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/github/github-original.svg" alt="GitHub-icon" width="30" height="30"/>
             </a>
               &nbsp;
             <a href="https://www.instagram.com/rndmateus/" target="_blank">
@@ -63,7 +63,7 @@ Sistema bancário desenvolvido para o projeto interdisciplinar no 4º semestre d
             </a>
               &nbsp;
             <a href="mailto:ronaldmateus785@gmail.com" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/281/281769.png" alt="Gmail-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/gmail/gmail-original.svg" alt="Gmail-icon" width="30" height="30"/>
             </a>
          </p>
     </td>
@@ -75,16 +75,16 @@ Sistema bancário desenvolvido para o projeto interdisciplinar no 4º semestre d
         Contate-me
         <p align="left">
             <a href="https://www.linkedin.com/in/lucas-souza19/" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="Linkedin-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/linkedin/linkedin-original.svg" alt="Linkedin-icon" width="30" height="30"/>
             </a>
               &nbsp;
             <a href="https://github.com/lucas-souza19" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="GitHub-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/github/github-original.svg" width="30" height="30"/>
             </a>
             </a>
               &nbsp;
             <a href="mailto:lucassouzacps19@gmail.comm" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/281/281769.png" alt="Gmail-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/gmail/gmail-original.svg" alt="Gmail-icon" width="30" height="30"/>
             </a>
          </p>
     </td>
@@ -96,20 +96,20 @@ Sistema bancário desenvolvido para o projeto interdisciplinar no 4º semestre d
         Contate-me
         <p align="left">
             <a href="https://www.linkedin.com/in/ivan-cardoso-442691191/" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="Linkedin-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/linkedin/linkedin-original.svg" width="30" height="30"/>
             </a>
               &nbsp;
             <a href="https://github.com/coivan" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/25/25231.png" alt="GitHub-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/github/github-original.svg" alt="GitHub-icon" width="30" height="30"/>
             </a>
               &nbsp;
             <a href="mailto:cardoso.ivan2012@gmail.com" target="_blank">
-              <img src="https://image.flaticon.com/icons/png/512/281/281769.png" alt="Gmail-icon" width="30" height="30"/>
+              <img src="https://github.com/coivan/devicon/blob/master/icons/gmail/gmail-original.svg" alt="Gmail-icon" width="30" height="30"/>
             </a>
          </p>
     </td>
 </tr>
 </table>
----
+
 
 Faculdade - [Instituto Federal de Educação, Ciência e Tecnologia de São Paulo - IFSP Câmpus Campinas](https://portal.cmp.ifsp.edu.br/)
